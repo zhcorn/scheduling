@@ -9,8 +9,8 @@
                 data: {id: id, _token: LA.token},
                 success: function (data) {
                     if (typeof data === 'object') {
-                        $('.output-box').removeClass('hide');
-                        $('.output-box .output-body').html(data.data);
+                        $('.output-card').removeClass('hide');
+                        $('.output-card .output-body').html(data.data);
                     }
                     NProgress.done();
                 }
@@ -30,9 +30,9 @@
 
 </style>
 
-<div class="box">
-    <!-- /.box-header -->
-    <div class="box-body no-padding">
+<div class="card">
+    <!-- /.card-header -->
+    <div class="card-body p-0">
         <table class="table table-striped table-hover">
             <tbody>
             <tr>
@@ -47,27 +47,27 @@
             <tr>
                 <td>{{ $index+1 }}.</td>
                 <td><code>{{ $event['task']['name'] }}</code></td>
-                <td><span class="label label-success">{{ $event['expression'] }}</span>&nbsp;{{ $event['readable'] }}</td>
+                <td><span class="badge bg-success">{{ $event['expression'] }}</span>&nbsp;{{ $event['readable'] }}</td>
                 <td>{{ $event['nextRunDate'] }}</td>
                 <td>{{ $event['description'] }}</td>
-                <td><a class="btn btn-xs btn-primary run-task" data-id="{{ $index+1 }}">Run</a></td>
+                <td><a href="#" class="btn btn-xs btn-primary run-task" data-id="{{ $index+1 }}">Run</a></td>
             </tr>
             @endforeach
             </tbody>
         </table>
     </div>
-    <!-- /.box-body -->
+    <!-- /.card-body -->
 </div>
 
-<div class="box box-default output-box hide">
-    <div class="box-header with-border">
+<div class="card card-default output-card hide">
+    <div class="card-header with-border">
         <i class="fa fa-terminal"></i>
 
-        <h3 class="box-title">Output</h3>
+        <h3 class="card-title">Output</h3>
     </div>
-    <!-- /.box-header -->
-    <div class="box-body">
+    <!-- /.card-header -->
+    <div class="card-body">
         <pre class="output-body"></pre>
     </div>
-    <!-- /.box-body -->
+    <!-- /.card-body -->
 </div>
